@@ -5,10 +5,37 @@ FROM mcr.microsoft.com/vscode/devcontainers/php:0-${VARIANT}
 # Install MariaDB client
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y mariadb-client \ 
+        libbz2-dev \
+        libgmp-dev \
+		libicu-dev \
+		libfreetype6-dev \
+		libjpeg-dev \
+		libldap2-dev \
+		libmemcached-dev \
+		libmagickwand-dev \
+		libpq-dev \
+		libpng-dev \
+		libwebp-dev \
+		libzip-dev \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
+RUN docker-php-ext-configure gd \
+		--with-freetype \
+		--with-jpeg \
+		--with-webp \
+	;
+
 # Install php-mysql driver
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql \
+    bz2 \
+    bcmath \
+    exif \
+    gd \
+    gmp \
+    intl \
+    ldap \
+    zip \
+	;
 
 # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
 ARG NODE_VERSION="none"
