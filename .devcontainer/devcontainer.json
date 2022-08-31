@@ -29,8 +29,8 @@
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	"features": {
-		"git": "latest",
-		"azure-cli": "latest",
+	//	"git": "latest",
+	//	"azure-cli": "latest",
 		"sshd": "latest"
 	}
 }
