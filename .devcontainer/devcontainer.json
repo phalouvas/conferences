@@ -13,7 +13,7 @@
 		"vscode": {		
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"xdebug.php-debug",
+				//"xdebug.php-debug",
 				"bmewburn.vscode-intelephense-client",
 				"mrmlnc.vscode-apache"
 			]
